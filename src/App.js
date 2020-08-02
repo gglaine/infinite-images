@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Header, Card, Image } from 'semantic-ui-react';
+import { Container, Grid, Header, Divider, Image } from 'semantic-ui-react';
 
 import './app.css';
 
@@ -23,21 +23,38 @@ function App() {
     <div className="App">
       {
         photo &&
-        <Container >
-          <Header as='h1'>ASTROLabPix</Header>
-          <Card centered >
-            <Image alt={photo.alt_description} src={photo.url} circular wrapped ui={false}  />
-            <Card.Content>
-              <Card.Header as='h3'>{photo.title}</Card.Header>
-              <Card.Meta>
-                <span className='date'>{photo.date}</span>
-              </Card.Meta>
-              <Card.Header as='h3'>
+
+      <React.Fragment>
+        <React.Fragment>
+          <Container className='apptitle'>
+            <Header as='h1'>ASTROPIX</Header>
+            <Header sub >NASA's Astronomy Picture Of The Day</Header>
+            <span className='date'>{photo.date}</span>
+            <Divider />
+          </Container>
+        </React.Fragment>
+
+        <React.Fragment>
+
+          <Grid stackable padded columns={2}>
+            <Grid.Column>
+              <Header as='h3'>{photo.title}</Header>
+
+              <Image alt={photo.alt_description} src={photo.url} fluid />
+              <div className='copyright'>{photo.copyright}</div>
+            </Grid.Column>
+            <Grid.Column>
+
+
+
                 {photo.explanation}
-              </Card.Header>
-            </Card.Content>
-          </Card>
-        </Container>
+
+
+
+            </Grid.Column>
+          </Grid>
+        </React.Fragment>
+      </React.Fragment>
       }
     </div>
   );

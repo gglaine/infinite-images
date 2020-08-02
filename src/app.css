@@ -5,6 +5,10 @@ body {
   font-family: 'Cabin', sans-serif;
 }
 
-.card {
-  padding: 2em !important;
+.apptitle {
+  margin-top: 1em;
+}
+
+.copyright {
+  margin-top: 1em;
 }
